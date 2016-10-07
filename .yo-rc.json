@@ -1,0 +1,30 @@
+{
+  "generator-angularjs-library": {
+    "props": {
+      "author": {
+        "name": "Pedro Camara Junior",
+        "email": "pedrocamarajunior@gmail.com"
+      },
+      "libraryName": {
+        "original": "Sigrh Portal Library",
+        "camelized": "sigrhPortalLibrary",
+        "dasherized": "sigrh-portal-library",
+        "slugified": "sigrh-portal-library",
+        "parts": [
+          "sigrh",
+          "portal",
+          "library"
+        ]
+      },
+      "includeModuleDirectives": true,
+      "includeModuleFilters": true,
+      "includeModuleServices": false,
+      "includeAngularModuleResource": false,
+      "includeAngularModuleCookies": false,
+      "includeAngularModuleSanitize": false,
+      "librarySrcDirectory": "src/sigrh-portal-library",
+      "libraryUnitTestDirectory": "test/unit/sigrh-portal-library",
+      "libraryUnitE2eDirectory": "test/e2e/sigrh-portal-library"
+    }
+  }
+}
