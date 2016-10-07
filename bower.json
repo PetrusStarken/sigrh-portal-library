@@ -17,7 +17,14 @@
   ],
   "license": "MIT",
   "main": "dist/sigrh-portal-library.js",
-  "ignore": [],
+  "ignore": [
+	"**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "package.json",
+    "src"
+  ],
   "dependencies": {
     "angular-messages": "^1.5.8"
   },
