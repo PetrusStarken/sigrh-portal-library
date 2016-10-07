@@ -1,12 +1,21 @@
 {
   "name": "sigrh-portal-library",
   "version": "0.1.0",
+  "description": "Biblioteca de diretivas e filtros",
   "authors": [
     {
       "name": "Pedro Camara Junior",
       "email": "pedrocamarajunior@gmail.com"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PetrusStarken/sigrh-portal-library.git"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
   "main": [
     "dist/sigrh-portal-library.js"
   ],
