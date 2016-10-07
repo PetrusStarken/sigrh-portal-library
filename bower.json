@@ -16,16 +16,8 @@
     "angular"
   ],
   "license": "MIT",
-  "main": [
-    "dist/sigrh-portal-library.js"
-  ],
-  "ignore": [
-    "src",
-    "test",
-    "gulpfile.js",
-    "karma-*.conf.js",
-    "**/.*"
-  ],
+  "main": "dist/sigrh-portal-library.js",
+  "ignore": [],
   "dependencies": {
     "angular-messages": "^1.5.8"
   },
