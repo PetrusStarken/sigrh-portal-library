@@ -3,9 +3,11 @@
   <a
     class="hidden-print"
     style="text-decoration:none; cursor:pointer; color:white;"
-    ui-sref="{{rotaRetorno || 'app'}}"
+    ng-href="{{ rotaRetorno || '#/'}}"
     id="linkvoltar"
     tabindex="499"
     accesskey="V"
     aria-label="Voltar para o menu príncipal">Voltar</a>
 </div>
+
+<!-- ui-sref="{{rotaRetorno || 'app'}}" -->
