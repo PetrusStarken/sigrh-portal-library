@@ -1,5 +1,5 @@
 <header class="navbar navbar-default navbar-static-top">
-  <div aria-label="Página carregada" aria-live="assertive"></div>
+  <div tabindex="{{::tabIndex}}" aria-label="Página carregada" aria-live="assertive"></div>
   <div class="hidden-xs col-sm-3">
     <img src="images/logoHeader.png" class="header_image_left" alt="Logomarca Portal do Servidor" />
   </div>
@@ -7,15 +7,12 @@
     <img src="images/logoHeaderXS.png" class="header_image_left_xs" alt="Logomarca Portal do Servidor" />
   </div>
   <div id="text-header" class="hidden-xs col-sm-8">
-    <h3>Governo do estado de Santa Catarina</h3>
-    <h3>Emiss&atilde;o e valida&ccedil;&atilde;o de certificados</h3>
-  </div>
-  <div id="text-header" class="visible-xs text-center">
-    <h3>SEA/SC</h3>
+    <h1>Governo do estado de Santa Catarina</h1>
+    <h3>{{::tituloSistema}}</h3>
   </div>
   <div class="col-sm-1">
     <div class="nav navbar-nav navbar-right">
-      <a id="linkSair" ng-show="participante || certificado" ng-click="sair()" class="float-right cursor-pointer" tabindex="500" role="link" accesskey="B" aria-label="Para sair do sistema utilize a tecla de atalho">Sair</a>
+      <a id="linkSair" ng-show="possuiSessao" ng-click="funcaoSair" class="float-right cursor-pointer" tabindex="500" role="link" accesskey="B" aria-label="Para sair do sistema utilize a tecla de atalho">Sair</a>
     </div>
   </div>
 </header>

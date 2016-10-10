@@ -6,20 +6,21 @@
 
   // Config
   angular.module('sigrhPortalLibrary.config', [])
-      .value('sigrhPortalLibrary.config', {
-          debug: true
-      });
+  .value('sigrhPortalLibrary.config', {
+    debug: true
+  });
 
   // Modules
   angular.module('sigrhPortalLibrary.directives', [
-    'ngMessages'
+    'ngMessages',
+    'ngMask'
   ]);
   angular.module('sigrhPortalLibrary.filters', []);
   angular.module('sigrhPortalLibrary',
-      [
-          'sigrhPortalLibrary.config',
-          'sigrhPortalLibrary.directives',
-          'sigrhPortalLibrary.filters'
-      ]);
+  [
+    'sigrhPortalLibrary.config',
+    'sigrhPortalLibrary.directives',
+    'sigrhPortalLibrary.filters'
+  ]);
 
 })(angular);

@@ -1,0 +1,7 @@
+<div ng-class="classe ? classe : 'col-sm-6'">
+  <b>
+    <span ng-class="{'hidden-xs hidden-sm': descricaoReduzida}">{{::descricao}}:</span>
+    <span class="visible-xs-inline visible-sm-inline" ng-if="descricaoReduzida">{{::descricaoReduzida}}:</span>
+  </b>
+  <ng-transclude></ng-transclude>
+</div>

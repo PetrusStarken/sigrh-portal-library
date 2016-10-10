@@ -1,0 +1,15 @@
+<div class="form-group" ng-class="field.$invalid && field.$dirty ? 'has-error': {'has-success': field.$dirty && required}">
+<label class="control-label" for="{{::fieldName}}">{{::label}}</label>
+<div ng-show="field.$invalid" ng-messages="field.$error" class="float-right text-danger">
+  <div ng-message="required">Campo obrigatório</div>
+</div>
+<select
+  class="form-control"
+  name="{{::fieldName}}"
+  ng-model="model"
+  ng-options="l.{{::key}} as l.{{::value}} for l in list {{::filter}}"
+  ng-attr-ng-required="required"
+  ng-attr-tabindex="{{::index}}">
+  <option ng-if="mensagemPadrao" value="">{{::mensagemPadrao}}</option>
+</select>
+</div>

@@ -23,7 +23,9 @@
     "bower_components",
     "test",
     "package.json",
-    "src"
+    "src",
+	"gulp*",
+	"karma*"
   ],
   "dependencies": {
     "angular-messages": "^1.5.8"

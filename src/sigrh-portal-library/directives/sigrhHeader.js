@@ -7,7 +7,13 @@
     return {
       templateUrl: 'sigrh-portal-library/templates/sigrhHeader.html',
       replace: false,
-      restrict: 'E'
+      restrict: 'E',
+      scope: {
+        tituloSistema: '@',
+        tabIndex: '@',
+        possuiSessao: '=',
+        funcaoSair: '='
+      }
     };
   }
 })(angular);

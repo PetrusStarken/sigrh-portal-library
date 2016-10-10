@@ -16,7 +16,7 @@ var header = require('gulp-header');
 /**
  * File patterns
  **/
- 
+
  var config = {
   pkg : JSON.parse(fs.readFileSync('./package.json')),
   banner:
@@ -66,7 +66,7 @@ gulp.task('build', function() {
 		  module: 'sigrhPortalLibrary'
 	  }));
   }
-  
+
   function buildDistJS(){
 	return gulp.src(sourceFiles)
 	  .pipe(plumber())
@@ -74,7 +74,7 @@ gulp.task('build', function() {
       .pipe(jshint.reporter('jshint-stylish'))
       .pipe(jshint.reporter('fail'));
   }
-  
+
   es.merge(buildDistJS(), buildTemplates())
 	.pipe(plumber())
 	.pipe(concat('sigrh-portal-library.js'))
@@ -91,7 +91,7 @@ gulp.task('build', function() {
  * Process
  */
 gulp.task('process-all', function (done) {
-  runSequence('jshint', 'build', done);//'test-src', 
+  runSequence('jshint', 'build', done);//'test-src',
 });
 
 /**
