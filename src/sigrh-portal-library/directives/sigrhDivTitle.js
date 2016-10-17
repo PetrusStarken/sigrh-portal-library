@@ -6,10 +6,10 @@
   function SigrhDivTitle() {
     return {
       templateUrl: 'sigrh-portal-library/templates/sigrhDivTitle.html',
-      replace: false,
-      restrict: 'A',
+      replace: true,
+      restrict: 'E',
       scope: {
-        tituloPagina: '=',
+        tituloPagina: '@',
         rotaRetorno: '@'
       }
     };

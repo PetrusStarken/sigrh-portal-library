@@ -1,9 +1,9 @@
 (function (angular) {
   'use strict';
 
-  angular.module('sigrhPortalLibrary.directives').directive('validarData', SigrhValidarData);
+  angular.module('sigrhPortalLibrary.directives').directive('sigrhValidateDate', SigrhValidateDate);
 
-  function SigrhValidarData() {
+  function SigrhValidateDate() {
     return {
       require: 'ngModel',
       restrict: 'A',

@@ -6,7 +6,7 @@
   function SigrhLabelKeyValue() {
     return {
       templateUrl: 'sigrh-portal-library/templates/sigrhLabelKeyValue.html',
-      replace: false,
+      replace: true,
       restrict: 'E',
       scope: {
         descricao: '@',

@@ -9,10 +9,13 @@
       replace: false,
       restrict: 'E',
       scope: {
+        logo: '@',
+        logoXs: '@',
+        subtituloSistema: '@',
         tituloSistema: '@',
         tabIndex: '@',
-        possuiSessao: '=',
-        funcaoSair: '='
+        possuiSessao: '@',
+        funcaoSair: '&'
       }
     };
   }

@@ -5,12 +5,13 @@
 
   function SigrhFooter() {
     return {
-      templateUrl: 'sigrh-portal-library/templates/sigrhFoter.html',
+      templateUrl: 'sigrh-portal-library/templates/sigrhFooter.html',
       replace: false,
       restrict: 'E',
       scope: {
         nomeCliente: '@',
         nomeSistema: '@',
+        desenvolvidoPor: '@',
         versao: '@'
       }
     };

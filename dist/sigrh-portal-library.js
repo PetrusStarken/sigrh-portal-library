@@ -1,7 +1,7 @@
 /*!
  * sigrh-portal-library
  * 
- * Version: 0.1.0 - 2016-10-10T14:31:20.097Z
+ * Version: 0.1.0 - 2016-10-17T12:04:48.311Z
  * License: 
  */
 
@@ -41,10 +41,10 @@
   function SigrhDivTitle() {
     return {
       templateUrl: 'sigrh-portal-library/templates/sigrhDivTitle.html',
-      replace: false,
-      restrict: 'A',
+      replace: true,
+      restrict: 'E',
       scope: {
-        tituloPagina: '=',
+        tituloPagina: '@',
         rotaRetorno: '@'
       }
     };
@@ -58,12 +58,13 @@
 
   function SigrhFooter() {
     return {
-      templateUrl: 'sigrh-portal-library/templates/sigrhFoter.html',
+      templateUrl: 'sigrh-portal-library/templates/sigrhFooter.html',
       replace: false,
       restrict: 'E',
       scope: {
         nomeCliente: '@',
         nomeSistema: '@',
+        desenvolvidoPor: '@',
         versao: '@'
       }
     };
@@ -81,10 +82,13 @@
       replace: false,
       restrict: 'E',
       scope: {
+        logo: '@',
+        logoXs: '@',
+        subtituloSistema: '@',
         tituloSistema: '@',
         tabIndex: '@',
-        possuiSessao: '=',
-        funcaoSair: '='
+        possuiSessao: '@',
+        funcaoSair: '&'
       }
     };
   }
@@ -101,6 +105,7 @@
       replace: false,
       restrict: 'E',
       scope: {
+        classe: '@',
         field: '=',
         model: '=',
         label: '@',
@@ -126,7 +131,7 @@
   function SigrhLabelKeyValue() {
     return {
       templateUrl: 'sigrh-portal-library/templates/sigrhLabelKeyValue.html',
-      replace: false,
+      replace: true,
       restrict: 'E',
       scope: {
         descricao: '@',
@@ -207,11 +212,13 @@
 (function (angular) {
   'use strict';
 
-  angular.module('sigrhPortalLibrary.directives').filter('converterStringParaData', SigrhConverterStringParaData);
+  angular.module('sigrhPortalLibrary.directives').filter('sigrhConvertToDate', SigrhConvertToDate);
 
-  function SigrhConverterStringParaData(value, len) {
-    var arrData = value.split('/');
-    return new Date(arrData[2], arrData[1] - 1, arrData[0]);
+  function SigrhConvertToDate() {
+    return function (value) {
+      var arrData = value.split('/');
+      return new Date(arrData[2], arrData[1] - 1, arrData[0]);
+    };
   }
 })(angular);
 
@@ -232,9 +239,9 @@
 (function (angular) {
   'use strict';
 
-  angular.module('sigrhPortalLibrary.directives').directive('validarData', SigrhValidarData);
+  angular.module('sigrhPortalLibrary.directives').directive('sigrhValidateDate', SigrhValidateDate);
 
-  function SigrhValidarData() {
+  function SigrhValidateDate() {
     return {
       require: 'ngModel',
       restrict: 'A',
@@ -256,10 +263,10 @@
   }
 })(angular);
 
-(function (angular) { 'use strict'; angular.module('sigrhPortalLibrary').run(['$templateCache', function($templateCache) {$templateCache.put("sigrh-portal-library/templates/sigrhDivTitle.html","{{::tituloPagina}}<div class=\"btn-group pull-right\"><a class=\"hidden-print\" style=\"text-decoration:none; cursor:pointer; color:white;\" ui-sref=\"{{rotaRetorno || \'app\'}}\" id=\"linkvoltar\" tabindex=\"499\" accesskey=\"V\" aria-label=\"Voltar para o menu príncipal\">Voltar</a></div>");
-$templateCache.put("sigrh-portal-library/templates/sigrhFooter.html","<footer class=\"hidden-print container\"><p class=\"text-muted credit\">{{::nomeCliente | {{::nomeSistema}} versão <b>{{::versao}}</b> - <a href=\"http://www.indracompany.com/pt-br\">Desenvolvido por {{::desenvolvidoPor}}</a>.</p></footer>");
-$templateCache.put("sigrh-portal-library/templates/sigrhHeader.html","<header class=\"navbar navbar-default navbar-static-top\"><div tabindex=\"{{::tabIndex}}\" aria-label=\"Página carregada\" aria-live=\"assertive\"></div><div class=\"hidden-xs col-sm-3\"><img src=\"images/logoHeader.png\" class=\"header_image_left\" alt=\"Logomarca Portal do Servidor\"></div><div class=\"visible-xs text-center\"><img src=\"images/logoHeaderXS.png\" class=\"header_image_left_xs\" alt=\"Logomarca Portal do Servidor\"></div><div id=\"text-header\" class=\"hidden-xs col-sm-8\"><h1>Governo do estado de Santa Catarina</h1><h3>{{::tituloSistema}}</h3></div><div class=\"col-sm-1\"><div class=\"nav navbar-nav navbar-right\"><a id=\"linkSair\" ng-show=\"possuiSessao\" ng-click=\"funcaoSair\" class=\"float-right cursor-pointer\" tabindex=\"500\" role=\"link\" accesskey=\"B\" aria-label=\"Para sair do sistema utilize a tecla de atalho\">Sair</a></div></div></header>");
-$templateCache.put("sigrh-portal-library/templates/sigrhLabelInput.html","<div class=\"form-group\" ng-class=\"field.$invalid && field.$dirty ? \'has-error\': {\'has-success\': field.$dirty && required}\"><label class=\"control-label\" for=\"{{::fieldName}}\">{{::label}}</label><div ng-show=\"field.$invalid\" ng-messages=\"field.$error\" class=\"float-right text-danger\"><div ng-message=\"required\">Campo obrigatório</div><div ng-message=\"email\">Formato de e-mail inválido</div><div ng-message=\"mask\">Formato inválido: {{::maskFormat}}</div><div ng-message=\"minlength\">Deve conter ao menos {{::minlength}} caracteres</div><div ng-message=\"maxlength\">Deve conter no máximo {{::maxlength}} caracteres</div><div ng-message=\"forca\">Senha fraca</div><div ng-message=\"senha\">Senhas não conferem</div><div ng-message=\"dominio\">Deve pertencer ao domínio sc.gov.br</div></div><input type=\"{{::type}}\" name=\"{{::fieldName}}\" placeholder=\"{{::placeholder}}\" ng-model=\"model\" ng-required=\"required\" ng-attr-ng-change=\"change\" ng-attr-ng-minlength=\"minlength\" ng-attr-ng-maxlength=\"maxlength\" class=\"form-control\" ng-attr-mask=\"{{::maskFormat}}\" ng-attr-tabindex=\"{{::index}}\"></div>");
+(function (angular) { 'use strict'; angular.module('sigrhPortalLibrary').run(['$templateCache', function($templateCache) {$templateCache.put("sigrh-portal-library/templates/sigrhDivTitle.html","<div class=\"panel-heading\">{{tituloPagina}}<div class=\"btn-group pull-right\"><a class=\"hidden-print\" style=\"text-decoration:none; cursor:pointer; color:white;\" ui-sref=\"{{rotaRetorno || \'app\'}}\" id=\"linkvoltar\" tabindex=\"499\" accesskey=\"V\" aria-label=\"Voltar para o menu príncipal\">Voltar</a></div></div>");
+$templateCache.put("sigrh-portal-library/templates/sigrhFooter.html","<footer class=\"hidden-print container\"><p class=\"text-muted credit\">{{::nomeCliente}} | {{::nomeSistema}} versão <b>{{::versao}}</b> - <a href=\"http://www.indracompany.com/pt-br\">Desenvolvido por {{::desenvolvidoPor}}</a>.</p></footer>");
+$templateCache.put("sigrh-portal-library/templates/sigrhHeader.html","<header class=\"navbar navbar-default navbar-static-top\"><div tabindex=\"{{::tabIndex}}\" aria-label=\"Página carregada\" aria-live=\"assertive\"></div><div class=\"hidden-xs col-sm-3\"><img src=\"{{::logo}}\" class=\"header_image_left\" alt=\"Logomarca Portal do Servidor\"></div><div class=\"visible-xs text-center\"><img src=\"{{::logoXs}}\" class=\"header_image_left_xs\" alt=\"Logomarca Portal do Servidor\"></div><div id=\"text-header\" class=\"hidden-xs col-sm-8\"><h3>{{tituloSistema}}</h3><h3>{{subtituloSistema}}</h3></div><div class=\"col-sm-1\"><div class=\"nav navbar-nav navbar-right\"><a id=\"linkSair\" ng-show=\"possuiSessao\" ng-click=\"funcaoSair()\" class=\"float-right cursor-pointer\" tabindex=\"500\" role=\"link\" accesskey=\"B\" aria-label=\"Para sair do sistema utilize a tecla de atalho\">Sair</a></div></div></header><div ng-class=\"{\'show\' : exibirDivAguarde}\" class=\"div-aguarde modal fade hidden-print\"><div class=\"row div-aguarde-texto\"><button class=\"btn btn-lg btn-success\" aria-live=\"assertive\" aria-label=\"Aguarde, carregando\"><span class=\"glyphicon glyphicon-refresh glyphicon-refresh-animate\"></span> Aguarde...</button></div></div>");
+$templateCache.put("sigrh-portal-library/templates/sigrhLabelInput.html","<div ng-class=\"classe ? classe : \'col-sm-6 col-lg-4\'\"><div class=\"form-group\" ng-class=\"field.$invalid && field.$dirty ? \'has-error\': {\'has-success\': field.$dirty && required}\"><label class=\"control-label\" for=\"{{::fieldName}}\">{{::label}}</label><div ng-show=\"field.$invalid\" ng-messages=\"field.$error\" class=\"float-right text-danger\"><div ng-message=\"required\">Campo obrigatório</div><div ng-message=\"email\">Formato de e-mail inválido</div><div ng-message=\"mask\">Formato inválido: {{::maskFormat}}</div><div ng-message=\"minlength\">Deve conter ao menos {{::minlength}} caracteres</div><div ng-message=\"maxlength\">Deve conter no máximo {{::maxlength}} caracteres</div><div ng-message=\"forca\">Senha fraca</div><div ng-message=\"senha\">Senhas não conferem</div><div ng-message=\"dominio\">Deve pertencer ao domínio sc.gov.br</div></div><input type=\"{{::type}}\" name=\"{{::fieldName}}\" placeholder=\"{{::placeholder}}\" ng-model=\"model\" ng-required=\"required\" ng-attr-ng-change=\"change\" ng-attr-ng-minlength=\"minlength\" ng-attr-ng-maxlength=\"maxlength\" class=\"form-control\" ng-attr-mask=\"{{::maskFormat}}\" ng-attr-tabindex=\"{{::index}}\"></div></div>");
 $templateCache.put("sigrh-portal-library/templates/sigrhLabelKeyValue.html","<div ng-class=\"classe ? classe : \'col-sm-6\'\"><b><span ng-class=\"{\'hidden-xs hidden-sm\': descricaoReduzida}\">{{::descricao}}:</span> <span class=\"visible-xs-inline visible-sm-inline\" ng-if=\"descricaoReduzida\">{{::descricaoReduzida}}:</span></b><ng-transclude></ng-transclude></div>");
 $templateCache.put("sigrh-portal-library/templates/sigrhLabelKeyValueGrid.html","<div ng-class=\"classeKey\"><b class=\"pull-right\"><span ng-class=\"{\'hidden-xs hidden-sm\': descricaoReduzida}\">{{::descricao}}:</span> <span class=\"visible-xs-inline visible-sm-inline\" ng-if=\"descricaoReduzida\">{{::descricaoReduzida}}:</span></b></div><div ng-class=\"classeValue\"><span ng-transclude=\"\"></span></div>");
 $templateCache.put("sigrh-portal-library/templates/sigrhLabelSelect.html","<div class=\"form-group\" ng-class=\"field.$invalid && field.$dirty ? \'has-error\': {\'has-success\': field.$dirty && required}\"><label class=\"control-label\" for=\"{{::fieldName}}\">{{::label}}</label><div ng-show=\"field.$invalid\" ng-messages=\"field.$error\" class=\"float-right text-danger\"><div ng-message=\"required\">Campo obrigatório</div></div><select class=\"form-control\" name=\"{{::fieldName}}\" ng-model=\"model\" ng-options=\"l.{{::key}} as l.{{::value}} for l in list {{::filter}}\" ng-attr-ng-required=\"required\" ng-attr-tabindex=\"{{::index}}\"><option ng-if=\"mensagemPadrao\" value=\"\">{{::mensagemPadrao}}</option></select></div>");}]);})(angular);

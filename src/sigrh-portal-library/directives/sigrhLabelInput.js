@@ -9,6 +9,7 @@
       replace: false,
       restrict: 'E',
       scope: {
+        classe: '@',
         field: '=',
         model: '=',
         label: '@',
