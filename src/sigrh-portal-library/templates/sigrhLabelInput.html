@@ -11,8 +11,8 @@
       <div ng-message="senha">Senhas não conferem</div>
       <div ng-message="dominio">Deve pertencer ao domínio sc.gov.br</div>
     </div>
-    <!-- <div class="input-group"> -->
-    <input type="{{::type}}"
+    <input ng-if="fieldName !== 'usuario'"
+      type="{{::type}}"
       name="{{::fieldName}}"
       placeholder="{{::placeholder}}"
       ng-model="model"
@@ -23,9 +23,14 @@
       class="form-control"
       ng-attr-mask="{{::maskFormat}}"
       ng-attr-tabindex="{{::index}}" />
-      <!-- <span class="input-group-addon">
-        <span class="fa fa-question" title="Campo obrigatório"></span>
-      </span>
-    </div> -->
+    <input ng-if="fieldName === 'usuario'"
+      sigrh-mascara-usuario
+      type="{{::type}}"
+      name="{{::fieldName}}"
+      placeholder="{{::placeholder}}"
+      ng-model="model"
+      ng-required="required"
+      class="form-control"
+      ng-attr-tabindex="{{::index}}" />
   </div>
 </div>
