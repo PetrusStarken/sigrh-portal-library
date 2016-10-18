@@ -1,7 +1,7 @@
 <div ng-class="classe ? classe : 'col-sm-6 col-lg-4'">
   <div class="form-group" ng-class="field.$invalid && field.$dirty ? 'has-error': {'has-success': field.$dirty && required}">
     <label class="control-label" for="{{::fieldName}}">{{::label}}</label>
-    <div ng-show="field.$invalid" ng-messages="field.$error" class="float-right text-danger">
+    <div ng-show="field.$invalid && field.$dirty" ng-messages="field.$error" class="float-right text-danger">
       <div ng-message="required">Campo obrigatório</div>
       <div ng-message="email">Formato de e-mail inválido</div>
       <div ng-message="mask">Formato inválido: {{::maskFormat}}</div>
@@ -11,6 +11,7 @@
       <div ng-message="senha">Senhas não conferem</div>
       <div ng-message="dominio">Deve pertencer ao domínio sc.gov.br</div>
     </div>
+    <!-- <div class="input-group"> -->
     <input type="{{::type}}"
       name="{{::fieldName}}"
       placeholder="{{::placeholder}}"
@@ -22,5 +23,9 @@
       class="form-control"
       ng-attr-mask="{{::maskFormat}}"
       ng-attr-tabindex="{{::index}}" />
+      <!-- <span class="input-group-addon">
+        <span class="fa fa-question" title="Campo obrigatório"></span>
+      </span>
+    </div> -->
   </div>
 </div>

@@ -12,14 +12,7 @@
   </div>
   <div class="col-sm-1">
     <div class="nav navbar-nav navbar-right">
-      <a id="linkSair" ng-show="possuiSessao" ng-click="funcaoSair()" class="float-right cursor-pointer" tabindex="500" role="link" accesskey="B" aria-label="Para sair do sistema utilize a tecla de atalho">Sair</a>
+      <a id="linkSair" ng-show="{{possuiSessao}}" ng-click="funcaoSair()" class="float-right cursor-pointer" tabindex="500" role="link" accesskey="B" aria-label="Para sair do sistema utilize a tecla de atalho">Sair</a>
     </div>
   </div>
 </header>
-<div ng-class="{'show' : exibirDivAguarde}" class="div-aguarde modal fade hidden-print">
-  <div class="row div-aguarde-texto">
-    <button class="btn btn-lg btn-success" aria-live="assertive" aria-label="Aguarde, carregando">
-      <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span> Aguarde...
-    </button>
-  </div>
-</div>
