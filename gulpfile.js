@@ -82,7 +82,7 @@ gulp.task('build', function() {
       timestamp: (new Date()).toISOString(), pkg: config.pkg
     }))
 	.pipe(gulp.dest('./dist/'))
-	.pipe(rename({suffix: '.min.js'}))
+	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
 	.pipe(gulp.dest('./dist'));
 });
