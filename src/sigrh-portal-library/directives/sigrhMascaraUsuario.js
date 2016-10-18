@@ -11,7 +11,7 @@
         function isCpf(value) {
           if (isNaN(value.substring(0, 11))) {
             return false;
-          } 
+          }
           return true;
         }
 

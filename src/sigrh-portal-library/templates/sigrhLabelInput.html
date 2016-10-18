@@ -11,7 +11,7 @@
       <div ng-message="senha">Senhas não conferem</div>
       <div ng-message="dominio">Deve pertencer ao domínio sc.gov.br</div>
     </div>
-    <input ng-if="fieldName !== 'usuario'"
+    <input ng-show="fieldName !== 'usuario'"
       type="{{::type}}"
       name="{{::fieldName}}"
       placeholder="{{::placeholder}}"
@@ -23,7 +23,7 @@
       class="form-control"
       ng-attr-mask="{{::maskFormat}}"
       ng-attr-tabindex="{{::index}}" />
-    <input ng-if="fieldName === 'usuario'"
+    <input ng-show="fieldName === 'usuario'"
       sigrh-mascara-usuario
       type="{{::type}}"
       name="{{::fieldName}}"
