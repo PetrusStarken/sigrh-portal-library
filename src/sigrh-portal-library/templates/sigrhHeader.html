@@ -1,10 +1,10 @@
 <header class="navbar navbar-default navbar-static-top">
-  <div tabindex="{{::tabIndex}}" aria-label="Página carregada" aria-live="assertive"></div>
+  <div tabindex="1" aria-label="Página carregada" aria-live="assertive"></div>
   <div class="hidden-xs col-sm-3">
-    <img src="{{::logo}}" class="header_image_left" alt="Logomarca Portal do Servidor" />
+    <img src="{{logo}}" class="header_image_left" alt="Logomarca Portal do Servidor" />
   </div>
   <div class="visible-xs text-center">
-    <img src="{{::logoXs}}" class="header_image_left_xs" alt="Logomarca Portal do Servidor" />
+    <img src="{{logoXs}}" class="header_image_left_xs" alt="Logomarca Portal do Servidor" />
   </div>
   <div id="text-header" class="hidden-xs col-sm-8">
     <h3>{{tituloSistema}}</h3>
@@ -12,7 +12,7 @@
   </div>
   <div class="col-sm-1">
     <div class="nav navbar-nav navbar-right">
-      <a id="linkSair" ng-show="{{possuiSessao}}" ng-click="funcaoSair()" class="float-right cursor-pointer" tabindex="500" role="link" accesskey="B" aria-label="Para sair do sistema utilize a tecla de atalho">Sair</a>
+      <a id="linkSair" ng-show="possuiSessao" ng-click="funcaoSair()" class="float-right cursor-pointer" tabindex="500" role="link" accesskey="B" aria-label="Para sair do sistema utilize a tecla de atalho">Sair</a>
     </div>
   </div>
 </header>

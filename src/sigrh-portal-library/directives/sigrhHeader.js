@@ -13,8 +13,7 @@
         logoXs: '@',
         subtituloSistema: '@',
         tituloSistema: '@',
-        tabIndex: '@',
-        possuiSessao: '@',
+        possuiSessao: '=',
         funcaoSair: '&'
       }
     };
